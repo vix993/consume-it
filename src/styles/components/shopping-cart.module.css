@@ -1,0 +1,22 @@
+.shopping_cart_wrapper {
+    margin: 3rem;
+    min-height: 70vh;
+    width: 30vw;
+    min-width: 300px;
+    background-color: var(--aqua);
+    border-radius: 1rem;
+    box-shadow: 2px 2px 2px 2px #ccc;
+}
+
+.shopping_cart_wrapper header {
+    display: flex;
+    justify-content: center;
+    background-color: var(--dark-aqua);
+    color: var(--text-primary);
+    font-family: var(--font-regular);
+    font-weight: 600;
+    font-size: 1.5rem;
+    padding: 1.25rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
