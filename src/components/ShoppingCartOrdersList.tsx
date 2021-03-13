@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 import { ShoppingCartItem } from './ShoppingCartItem'
 
-import { ShoppingCartContext } from '../context/ShoppingCartContext';
+// import { ShoppingCartContext } from '../context/ShoppingCartContext';
 
 import styles from '../styles/components/shopping-cart-orders-list.module.css';
 

@@ -1,30 +1,37 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ConsumeIT:
 
-## Getting Started
+## Content
 
-First, run the development server:
+1. [Motivation](#Motivation) 
+2. [Requirements](#Requirements)
+3. [Pages](#Pages)
+    - [Home](#Visit)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Motivation
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This repository holds a project called [`ConsumeIT`](https://move-it-xp.vercel.app). In this project, I created an online distribution platform.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Users can chose from a given range of products provided by a (rather unreliable) source.
 
-## Learn More
+They can purchase them after applying discount codes and checking availability.
 
-To learn more about Next.js, take a look at the following resources:
+You can run it by cloning the repository. Running `cd consumeIT`,`yarn install` then executing the command `yarn dev`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Requirements
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Typescript, React, Next.js, Jest and more.
 
-## Deploy on Vercel
+## Pages
+### *Home*
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### timer and user details
+Click start cycle to begin your work cycle and at the end of it receive your challenge and XP on completion.
+##### /
+###### App
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<img src="./presentation/screenshot.png" alt="screenshot of UI"/>
+
+###### Level-up
+
+<img src="./presentation/screenshot_levelup.png" alt="screenshot of levelup"/>
+
