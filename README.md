@@ -9,7 +9,7 @@
 
 ## Motivation
 
-This repository holds a project called [`ConsumeIT`](https://move-it-xp.vercel.app). In this project, I created an online distribution platform.
+This repository holds a project called [`ConsumeIT`](https://consume-it.vercel.app/). In this project, I created an online distribution platform.
 
 Users can chose from a given range of products provided by a (rather unreliable) source.
 
