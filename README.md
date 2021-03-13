@@ -10,7 +10,7 @@
 
 ## Status
 
-![example workflow](https://github.com/github/docs/actions/workflows/test_on_push.yml/badge.svg)
+![example workflow](https://github.com/vix993/consume-it/actions/workflows/test_on_push.yml/badge.svg)
 
 ## Motivation
 
