@@ -2,7 +2,7 @@ import { createContext, useState, ReactNode, useEffect } from 'react';
 
 import {getProducts} from '../repositories/productsRepository';
 
-import * as dummy from '../../dummy.json';
+import * as dummy from '../dummy.json';
 
 interface ShoppingCartProviderProps {
     children: ReactNode;
@@ -31,15 +31,14 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
 
     useEffect(() => {
         getProducts()
-            .then(res => {
+            .then((res: any) => {
                 console.log(res)
-                setProducts(res)
+                if (!res.status)
+                    setProducts(res)
             })
-            .catch(err => {
+            .catch((err: any) => {
                 console.log(err)
             });
-        if (!products)
-            setProducts(dummy.data)
         console.log(products)
     }, []);
     

@@ -23,7 +23,11 @@ export const Product: React.FC<ProductProps> = ({name, available, price}) => {
                     <div>{ available } left</div>
                 </div>
             </main>
-            <button className={styles.product_buy_button}></button>
+            <div className={styles.product_buy_button_container}>
+                <button className={styles.product_buy_button}>
+                    <div>BUY</div>
+                </button>
+            </div>
 
         </section>
     );
