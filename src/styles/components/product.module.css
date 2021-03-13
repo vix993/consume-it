@@ -41,7 +41,7 @@
 
 .product_buy_button_container:hover {
     background-color: var(--aqua);
-    box-shadow: 2px 2px 2px 2px #ccc;
+    box-shadow: 1px 1px 1px 1px rgba(204,204,204, 0.7);
     border-bottom-left-radius: 1rem;
     cursor: pointer;
     /* border-bottom-right-radius: 1rem; */

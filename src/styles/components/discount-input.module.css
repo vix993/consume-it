@@ -39,7 +39,7 @@
 
 .discount_input_wrapper button:hover {
     opacity: 0.9;
-    box-shadow: 1.5px 1.5px 1.5px 1.5px #ccc;
+    box-shadow: 1px 1px 1px 1px rgba(204,204,204, 0.7);
     border-bottom-right-radius: 0;
     /* border: solid 1px #ccc; */
     cursor: pointer;

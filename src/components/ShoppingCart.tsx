@@ -1,6 +1,7 @@
 import React from 'react';
 
 import styles from '../styles/components/shopping-cart.module.css';
+import { CheckoutButton } from './CheckoutButton';
 import { DiscountInput } from './DiscountInput';
 import { PricingDetailsList } from './PricingDetailsList';
 import { ShoppingCartOrdersList } from './ShoppingCartOrdersList';
@@ -16,6 +17,7 @@ export const ShoppingCart: React.FC<ShoppingCartProps> = ({}) => {
                 <ShoppingCartOrdersList />
                 <DiscountInput />
                 <PricingDetailsList />
+                <CheckoutButton />
                 
             </aside>
         );

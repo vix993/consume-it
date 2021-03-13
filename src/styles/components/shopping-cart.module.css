@@ -6,6 +6,9 @@
     background-color: var(--aqua);
     border-radius: 1rem;
     box-shadow: 2px 2px 2px 2px #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .shopping_cart_wrapper header {
