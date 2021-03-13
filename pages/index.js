@@ -18,8 +18,10 @@ export default function Home() {
       </Head>
       <Header />
       <ShoppingCartProvider>
-          <ProductDisplay/>
-          <ShoppingCart/>
+          <section style={{ display: 'flex', flexDirection: 'row' }}>
+            <ShoppingCart/>
+            <ProductDisplay/>
+          </section>
       </ShoppingCartProvider>
     </main>
   )

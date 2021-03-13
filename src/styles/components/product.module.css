@@ -1,0 +1,36 @@
+.product_wrapper {
+    background-color: var(--dark-aqua);
+    border-radius: 1rem;
+    width: 10rem;
+    height: auto;
+}
+
+.product_header {
+    padding: 2.5rem;
+}
+
+.product_description {
+    background-color: var(--aqua);
+    padding: 0.75rem;
+}
+
+.product_description {
+    font-family: var(--font-regular);
+    color: var(--text-primary);
+}
+
+.product_description span {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.product_description div {
+    margin-top: 0.25rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.product_buy_button {
+    padding: 2rem;
+}

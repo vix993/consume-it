@@ -1,0 +1,8 @@
+.product_display_wrapper {
+    margin: 3rem;
+    max-width: 60vw;
+    min-height: 70vh;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 1fr 1fr 1fr;
+}

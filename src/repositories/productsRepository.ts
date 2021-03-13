@@ -8,7 +8,7 @@ export const getProducts = () => {
         })
         .catch(async err => {
             const error = await {status: err.response.status, message: err.response.statusText}
-            console.error(error)
+            console.error(err.status)
             return error
         })
 }
