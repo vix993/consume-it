@@ -2,10 +2,15 @@
 
 ## Content
 
-1. [Motivation](#Motivation) 
-2. [Requirements](#Requirements)
-3. [Pages](#Pages)
+1. [Motivation](#Motivation)
+2. [Status](#Status) 
+3. [Requirements](#Requirements)
+4. [Pages](#Pages)
     - [Home](#Visit)
+
+## Status
+
+![example workflow](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
 
 ## Motivation
 
