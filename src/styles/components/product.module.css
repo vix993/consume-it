@@ -43,17 +43,18 @@
     background-color: var(--aqua);
     box-shadow: 2px 2px 2px 2px #ccc;
     border-bottom-left-radius: 1rem;
+    cursor: pointer;
     /* border-bottom-right-radius: 1rem; */
 }
 
 .product_buy_button {
     background-color: rgba(255, 255, 255, 0);
     border: 0;
-    padding: ;
     color: var(--text-primary);
     font-family: var(--font-regular);
     font-weight: 600;
     font-size: 2rem;
     border-radius: 1rem;
     transition: 0.5s;
+    cursor: pointer;
 }

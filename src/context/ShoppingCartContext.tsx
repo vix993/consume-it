@@ -30,7 +30,8 @@ interface VouchersData {
 }
 
 interface ShoppingCartContextData {
-    products: ProductsData[]
+    products: ProductsData[];
+    orders: OrdersData[];
 }
 
 export const ShoppingCartContext = createContext({} as ShoppingCartContextData)
@@ -75,6 +76,7 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
         <ShoppingCartContext.Provider
             value={{
                 products,
+                orders,
                 // setProducts,
                 // subtotal,
                 // setSubtotal,

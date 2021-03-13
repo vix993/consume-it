@@ -1,5 +1,10 @@
 .orders_list_wrapper {
-    height: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: inherit;
+    height: 130px;
     width: 100%;
-    overflow: scroll;
+    padding: 0.5rem;
+    overflow: auto;
 }
