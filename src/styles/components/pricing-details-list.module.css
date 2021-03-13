@@ -1,0 +1,22 @@
+.pricing_details_list_wrapper {
+    height: 30%;
+
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+
+}
+
+.pricing_details_list_wrapper div {
+    width: 100%;
+    padding: 0.2rem 1rem;
+
+    font-family: var(--font-regular);
+    font-size: 1.25rem;
+    line-height: 16px;
+
+    color: var(--text-primary);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

@@ -32,6 +32,13 @@ interface VouchersData {
 interface ShoppingCartContextData {
     products: ProductsData[];
     orders: OrdersData[];
+    total: number;
+    discount: number;
+    subtotal: number;
+    shipping: number;
+    activeVoucher: VouchersData[];
+    vouchers: VouchersData[];
+    // setActiveVoucher: () => void;
 }
 
 export const ShoppingCartContext = createContext({} as ShoppingCartContextData)
@@ -40,7 +47,7 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
     const [products, setProducts] = useState<ProductsData[]>([]);
     const [orders, setOrders] = useState<OrdersData[]>([]);
     const [vouchers, setVouchers] = useState<VouchersData[]>([]);
-    const [activeVoucher, setActiveVoucher] = useState();
+    const [activeVoucher, setActiveVoucher] = useState<VouchersData[]>([]);
     const [subtotal, setSubtotal] = useState(0);
     const [shipping, setShipping] = useState(0);
     const [discount, setDiscount] = useState(0);
@@ -78,12 +85,17 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
                 products,
                 orders,
                 // setProducts,
-                // subtotal,
+                subtotal,
                 // setSubtotal,
-                // discount,
+                discount,
                 // setDiscount,
-                // total,
-                // setTotal
+                total,
+                // setTotal,
+                shipping,
+                vouchers,
+                activeVoucher,
+                // setActiveVoucher
+
             }}
         >
             {children}
