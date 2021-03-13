@@ -69,8 +69,10 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
     }, []);
 
     const buyProduct = (product: ProductsData) => {
+        // If product is available:
+        // update stock, add to orders
+        // update pricing details
         if (product.available > 0) {
-
             const newProductsData = products.filter((prod: ProductsData) => product.id != prod.id)
             product.available--;
             const newProducts = [...newProductsData, product]
