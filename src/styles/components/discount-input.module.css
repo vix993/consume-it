@@ -10,14 +10,11 @@
 
 .discount_input_wrapper input {
     width: 70%;
-    height: 35px;
+    height: 30px;
     border-radius: 0.25rem;
-
     font-family: var(--font-regular);
     font-size: 1rem;
-
     line-height: 10px;
-    padding: auto;
 }
 
 .discount_input_wrapper button {
@@ -31,7 +28,7 @@
 
     color: var(--text-primary);
     background-color: var(--dark-aqua);
-    height: 35px;
+    height: 30px;
     width: 22%;
 
     transition: 0.3s;

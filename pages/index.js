@@ -6,6 +6,8 @@ import { ShoppingCart } from '../src/components/ShoppingCart';
 
 import { ShoppingCartProvider } from '../src/context/ShoppingCartContext';
 
+import styles from '../src/styles/home.module.css';
+
 export default function Home() {
   return (
     <main>
@@ -18,7 +20,7 @@ export default function Home() {
       </Head>
       <Header />
       <ShoppingCartProvider>
-          <section style={{ display: 'flex', flexDirection: 'row' }}>
+          <section className={styles.home_wrapper}>
             <ShoppingCart/>
             <ProductDisplay/>
           </section>

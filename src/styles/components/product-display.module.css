@@ -1,8 +1,34 @@
 .product_display_wrapper {
-    margin: 3rem;
-    max-width: 60vw;
-    min-height: 70vh;
+    margin: 3rem 0;
+    /* max-width: 60vw; */
+    min-width: 200px;
+    height: 70vh;
     display: grid;
     grid-gap: 1rem;
     grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media only screen and (max-width: 990px) {
+    .product_display_wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .product_display_wrapper {
+        max-height: 440px;
+        grid-template-columns: 2fr;
+        overflow: auto;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .product_display_wrapper {
+        max-height: 400px;
+        overflow: scroll;
+        min-width: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }

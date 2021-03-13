@@ -21,8 +21,9 @@
     color: var(--text-primary);
     background-color: var(--dark-aqua);
     height: 35px;
-    transition: 0.3s ease-in;
-    padding: 1.5rem 8.5rem;
+    transition: box-shadow 0.3s ease-in;
+    transition: border-bottom-right-radius 0.3s ease-in;
+    padding: 1.5rem 7.5rem;
     margin-bottom: 0.25rem;
 
     display: flex;
@@ -37,7 +38,13 @@
     cursor: pointer;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 650px) {
+    .checkout_button {
+        padding: 1.5rem 6rem;
+    }
+}
+
+@media only screen and (max-width: 650px) {
     .checkout_button {
         padding: 1.5rem 6rem;
     }

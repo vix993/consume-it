@@ -3,9 +3,10 @@
     flex-direction: column;
     justify-content: space-evenly;
     background-color: inherit;
-    height: 130px;
+    height: 200px;
     width: 100%;
     padding: 0.5rem;
     overflow: auto;
     border-bottom: solid 2px #ccc;
+    align-items: center;
 }

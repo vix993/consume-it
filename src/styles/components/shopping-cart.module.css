@@ -1,8 +1,7 @@
 .shopping_cart_wrapper {
-    margin: 3rem;
-    min-height: 70vh;
-    width: 30vw;
-    min-width: 300px;
+    margin: 3rem 0;
+    height: 440px;
+    width: 350px;
     background-color: var(--aqua);
     border-radius: 1rem;
     box-shadow: 2px 2px 2px 2px #ccc;
@@ -23,4 +22,11 @@
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
     border-bottom: solid 2px #ccc;
+}
+
+@media only screen and (max-width: 650px) {
+    .shopping_cart_wrapper {
+        margin: 3rem 0;
+        width: 300px;
+    }
 }
