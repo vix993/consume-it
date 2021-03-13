@@ -30,7 +30,7 @@ export const ShoppingCartContext = createContext({} as ShoppingCartContextData)
 
 export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) => {
     const [products, setProducts] = useState<ProductsData[]>([]);
-    const [vouchers, setVouchers] = useState<>
+    const [vouchers, setVouchers] = useState<VouchersData[]>([]);
     const [subtotal, setSubtotal] = useState(0);
     const [shipping, setShipping] = useState(0);
     const [discount, setDiscount] = useState(0);
