@@ -15,6 +15,13 @@ interface ProductsData {
     price: number;
 }
 
+interface VouchersData {
+    id: number;
+    code: string;
+    type: string;
+    amount: number;
+}
+
 interface ShoppingCartContextData {
     products: ProductsData[]
 }
@@ -23,9 +30,11 @@ export const ShoppingCartContext = createContext({} as ShoppingCartContextData)
 
 export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) => {
     const [products, setProducts] = useState<ProductsData[]>([]);
-    const [subtotal, setSubtotal] = useState(234);
-    const [discount, setDiscount] = useState(1);
-    const [total, setTotal] = useState(243);
+    const [vouchers, setVouchers] = useState<>
+    const [subtotal, setSubtotal] = useState(0);
+    const [shipping, setShipping] = useState(0);
+    const [discount, setDiscount] = useState(0);
+    const [total, setTotal] = useState(0);
 
     // fetching product data
 
@@ -44,6 +53,7 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
 
     const buyProduct = (product: ProductsData) => {
         if (product.available > 0) {
+
             const newProductsData = products.filter((prod: ProductsData) => product.id != prod.id)
             product.available--;
             const newProducts = [...newProductsData, product]
