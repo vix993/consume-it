@@ -1,0 +1,5 @@
+.orders_list_wrapper {
+    height: 2rem;
+    width: 100%;
+    overflow: scroll;
+}

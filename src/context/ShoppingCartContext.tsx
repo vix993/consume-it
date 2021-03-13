@@ -15,6 +15,13 @@ interface ProductsData {
     price: number;
 }
 
+interface OrdersData {
+    id: number;
+    name: string;
+    price: number;
+    quantity: number;
+}
+
 interface VouchersData {
     id: number;
     code: string;
@@ -30,7 +37,9 @@ export const ShoppingCartContext = createContext({} as ShoppingCartContextData)
 
 export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) => {
     const [products, setProducts] = useState<ProductsData[]>([]);
+    const [orders, setOrders] = useState<OrdersData[]>([]);
     const [vouchers, setVouchers] = useState<VouchersData[]>([]);
+    const [activeVoucher, setActiveVoucher] = useState();
     const [subtotal, setSubtotal] = useState(0);
     const [shipping, setShipping] = useState(0);
     const [discount, setDiscount] = useState(0);
