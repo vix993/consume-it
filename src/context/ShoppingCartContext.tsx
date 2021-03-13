@@ -22,7 +22,7 @@ interface ShoppingCartContextData {
 export const ShoppingCartContext = createContext({} as ShoppingCartContextData)
 
 export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) => {
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState<ProductsData[]>([]);
     const [subtotal, setSubtotal] = useState(234);
     const [discount, setDiscount] = useState(1);
     const [total, setTotal] = useState(243);
@@ -41,6 +41,15 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
             });
         console.log(products)
     }, []);
+
+    const buyProduct = (product: ProductsData) => {
+        if (product.available > 0) {
+            const newProductsData = products.filter((prod: ProductsData) => product.id != prod.id)
+            product.available--;
+            const newProducts = [...newProductsData, product]
+            setProducts(newProducts)
+        }
+    }
     
 
     return (

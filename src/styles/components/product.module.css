@@ -11,7 +11,7 @@
 
 .product_description {
     background-color: var(--aqua);
-    padding: 0.75rem;
+    padding: 0.95rem;
 }
 
 .product_description {
@@ -24,7 +24,7 @@
     font-weight: 600;
 }
 
-.product_description div:nth-child(1) {
+.product_description div {
     margin-top: 0.25rem;
     display: flex;
     flex-direction: row;
