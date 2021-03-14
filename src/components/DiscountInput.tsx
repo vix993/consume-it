@@ -2,6 +2,8 @@ import React, { useState, useContext } from 'react';
 
 import { ShoppingCartContext } from '../context/ShoppingCartContext';
 
+import {createNotification} from '../utils/createNotification';
+
 import styles from '../styles/components/discount-input.module.css';
 
 interface DiscountInputProps {
@@ -10,6 +12,7 @@ interface DiscountInputProps {
 
 export const DiscountInput: React.FC<DiscountInputProps> = ({}) => {
     const [discountCodeInput, setDiscountCodeInput] = useState("");
+    const [discountCodeMessage, setDiscountCodeMessage] = useState("");
     const { handleVoucherSelection, activeVoucher } = useContext(ShoppingCartContext);
 
     const handleChange = (e: any) => {
@@ -18,8 +21,11 @@ export const DiscountInput: React.FC<DiscountInputProps> = ({}) => {
 
     const handleSubmitDiscountCode = (e: any) => {
         e.preventDefault();
-        if (!activeVoucher)
-            handleVoucherSelection(discountCodeInput);
+        if (!discountCodeMessage){
+            const message = handleVoucherSelection(discountCodeInput);
+            createNotification(message);
+            setDiscountCodeMessage(message);
+        }
     }
 
     return (

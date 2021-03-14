@@ -1,13 +1,13 @@
 import { createContext, useState, ReactNode, useEffect } from 'react';
 
 import { getProducts } from '../repositories/productsRepository';
-import { getVouchers } from 'src/repositories/vouchersRepository';
+import { getVouchers } from '../repositories/vouchersRepository';
 
 import { ProductsData, VouchersData, OrdersData } from '../types/ProductModels';
-import { ShoppingCartContextData } from 'src/types/ShoppingCartContextData';
+import { ShoppingCartContextData } from '../types/ShoppingCartContextData';
 
-import * as dummy from '../dummy.json';
-import { createNewOrdersList } from 'src/utils/shoppingCartUtils';
+import { createNewOrdersList } from '../utils/shoppingCartUtils';
+import { createNotification } from '../utils/createNotification';
 
 
 export interface ShoppingCartProviderProps {
@@ -45,7 +45,7 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
             .then(async (res: any) => {
                 console.log(res)
                 if (!res.error){
-                    setVouchers(res)
+                    setVouchers(res);
                 }
             })
             .catch((err: any) => {
@@ -53,6 +53,10 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
             })
         // console.log('vouchers', vouchers);
     }
+
+    useEffect(() => {
+        Notification.requestPermission();
+    }, []);
 
     useEffect(() => {
         requestProducts();
@@ -140,7 +144,7 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
         if (!voucherSelection)
             return "code invalid";
         console.log(activeVoucher === voucherSelection, voucherSelection)
-        if (activeVoucher)
+        if (activeVoucher === voucherSelection)
             return "code active";
         setActiveVoucher(voucherSelection)
         return "discount applied"

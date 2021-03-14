@@ -10,7 +10,7 @@ export const Header: React.FC<HeaderProps> = ({}) => {
         return (
             <header className={styles.header_wrapper}>
                 <h1 className={styles.header_title}>
-                    Hello Header
+                    ConsumeIT
                 </h1>
                 <div className={styles.header_customer_details}>
                     <img

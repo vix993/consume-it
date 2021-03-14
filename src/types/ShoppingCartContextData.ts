@@ -11,5 +11,5 @@ export interface ShoppingCartContextData {
     activeVoucher: VouchersData | undefined;
     buyProduct: (productId: number) => void;
     removeOrder: (orderProductId: number, quantity: number) => void;
-    handleVoucherSelection: (discountCode: string) => void;
+    handleVoucherSelection: (discountCode: string) => string;
 }
