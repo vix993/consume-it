@@ -21,7 +21,7 @@ export const DiscountInput: React.FC<DiscountInputProps> = ({}) => {
 
     const handleSubmitDiscountCode = (e: any) => {
         e.preventDefault();
-        if (!activeVoucher){
+        if (!activeVoucher && !discountCodeMessage){
             const message = handleVoucherSelection(discountCodeInput);
             createNotification(message);
             setDiscountCodeMessage(message);
