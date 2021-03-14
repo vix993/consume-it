@@ -1,11 +1,11 @@
 .orders_list_wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     background-color: inherit;
     height: 200px;
     width: 100%;
-    padding: 0.5rem;
+    padding: 0.25rem;
     overflow: auto;
     border-bottom: solid 2px #ccc;
     align-items: center;

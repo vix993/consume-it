@@ -4,11 +4,12 @@ export const getVouchers = () => {
     return axios.get('https://shielded-wildwood-82973.herokuapp.com/vouchers.json')
         .then(async (res: any) => {
             const response = await res.data.vouchers;
+            console.log('response', res, response);
             return response
         })
         .catch(async (err: any) => {
-            const error = await {status: err.response.status, message: err.response.statusText}
-            console.error(err.status)
+            const error = await {error: err}
+            console.error(err)
             return error
         })
 }

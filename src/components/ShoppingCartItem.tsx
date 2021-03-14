@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
+import { ShoppingCartContext } from '../context/ShoppingCartContext';
 
 import styles from '../styles/components/shopping-cart-item.module.css';
 
@@ -6,9 +8,11 @@ interface ShoppingCartItemProps {
     name: string;
     quantity: number;
     price: number;
+    id: number;
 }
 
-export const ShoppingCartItem: React.FC<ShoppingCartItemProps> = ({name, quantity, price}) => {
+export const ShoppingCartItem: React.FC<ShoppingCartItemProps> = ({name, quantity, price, id}) => {
+    const { removeOrder, buyProduct } = useContext(ShoppingCartContext);
         return (
             <main className={styles.card_item_wrapper}>
                 <section className={styles.card_item_container}>
@@ -21,8 +25,8 @@ export const ShoppingCartItem: React.FC<ShoppingCartItemProps> = ({name, quantit
                         </section>
                     </div>
                     <div className={styles.card_item_buttons}>
-                        <button>+</button>
-                        <button>-</button>
+                        <button onClick={() => buyProduct(id)}>+</button>
+                        <button onClick={() => removeOrder(id, quantity)}>-</button>
                     </div>
                     {/* PRODUCT BOUGHT */}
                 </section>

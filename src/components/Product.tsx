@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-// import { ShoppingCartContext } from '../context/ShoppingCartContext';
+import { ShoppingCartContext } from '../context/ShoppingCartContext';
 
 import styles from '../styles/components/product.module.css';
 
@@ -8,9 +8,11 @@ interface ProductProps {
     name: string;
     available: number;
     price: number;
+    id: number;
 }
 
-export const Product: React.FC<ProductProps> = ({name, available, price}) => {
+export const Product: React.FC<ProductProps> = ({name, available, price, id}) => {
+    const { buyProduct } = useContext(ShoppingCartContext);
     return (
         <section className={styles.product_wrapper}>
             <div className={styles.product_header}></div>
@@ -24,8 +26,8 @@ export const Product: React.FC<ProductProps> = ({name, available, price}) => {
                 </div>
             </main>
             <div className={styles.product_buy_button_container}>
-                <button className={styles.product_buy_button}>
-                    <div>BUY</div>
+                <button onClick={() => buyProduct(id)} className={styles.product_buy_button}>
+                    BUY
                 </button>
             </div>
 

@@ -9,12 +9,12 @@ interface PricingDetailsListProps {
 }
 
 export const PricingDetailsList: React.FC<PricingDetailsListProps> = ({}) => {
-    const { subtotal, shipping, discount, total } = useContext(ShoppingCartContext);
+    const { subtotal, shipping, discount, total, orders } = useContext(ShoppingCartContext);
     const pricingDetails = [
-        {key: 'subtotal', value: subtotal},
-        {key: 'discount', value: discount},
-        {key: 'shipping', value: shipping},
-        {key: 'total', value: total}
+        {key: 'subtotal', value: subtotal.toFixed(2) },
+        {key: 'discount', value: discount.toFixed(2) },
+        {key: 'shipping', value: shipping.toFixed(2) },
+        {key: 'total', value: total.toFixed(2) }
     ]
         return (
             <section className={styles.pricing_details_list_wrapper}>
@@ -22,7 +22,7 @@ export const PricingDetailsList: React.FC<PricingDetailsListProps> = ({}) => {
                     return (
                         <div key={value.key}>
                             <span>{value.key}</span>
-                            <span>{value.value}</span>
+                            <span>$ {value.value}</span>
                         </div>
                     )
                 })}

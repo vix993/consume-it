@@ -1,10 +1,10 @@
 .product_display_wrapper {
-    margin: 3rem 0;
-    /* max-width: 60vw; */
+    margin: 1rem 0;
+    max-width: 60vw;
     min-width: 200px;
-    height: 70vh;
+    height: 500px;
     display: grid;
-    grid-gap: 1rem;
+    grid-gap: 0.5rem;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
@@ -16,7 +16,6 @@
 
 @media only screen and (max-width: 800px) {
     .product_display_wrapper {
-        max-height: 440px;
         grid-template-columns: 2fr;
         overflow: auto;
     }
@@ -24,7 +23,6 @@
 
 @media only screen and (max-width: 650px) {
     .product_display_wrapper {
-        max-height: 400px;
         overflow: scroll;
         min-width: 300px;
         display: flex;

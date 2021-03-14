@@ -12,15 +12,14 @@ interface ProductDisplayProps {
 
 export const ProductDisplay: React.FC<ProductDisplayProps> = ({}) => {
     const { products } = useContext(ShoppingCartContext);
-    console.log(products)
     return (
         <section>
             <div className={styles.product_display_wrapper}>
                 {products.map((product) => {
-                    console.log(product.name)
                     return (
                         <Product
                             key={product.id}
+                            id={product.id}
                             name={product.name}
                             price={product.price}
                             available={product.available}

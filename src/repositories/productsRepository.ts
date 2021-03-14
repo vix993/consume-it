@@ -7,8 +7,8 @@ export const getProducts = () => {
             return response
         })
         .catch(async (err: any) => {
-            const error = await {status: err.response.status, message: err.response.statusText}
-            console.error(err.status)
+            const error = await {error: err}
+            // console.error(err.status)
             return error
         })
 }
