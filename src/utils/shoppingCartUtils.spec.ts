@@ -1,5 +1,4 @@
 import { createNewOrdersList } from './shoppingCartUtils';
-import dummy from '../dummy.json';
 
 test("Unit testing dynamic order list editing adding product quantity", () => {
     const orders = [

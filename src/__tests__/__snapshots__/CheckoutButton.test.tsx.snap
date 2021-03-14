@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CheckoutButton /> Should display a button with CHECKOUT written, on click should alert user of success 1`] = `
+<main>
+  <button
+    onClick={[Function]}
+  >
+    CHECKOUT
+  </button>
+</main>
+`;
