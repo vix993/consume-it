@@ -102,8 +102,13 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
         orders.map((order) => {
             newSubtotal += order.price * order.quantity
         })
+        console.log('fjerjpewrkf', newSubtotal, discount, activeVoucher)
         if (activeVoucher && activeVoucher.type === 'percentual') {
-            setDiscount(newSubtotal - (newSubtotal * (activeVoucher.amount / 100)));
+
+            const newDiscount = newSubtotal * activeVoucher.amount / 100;
+            // const newDiscount = newSubtotal - (newSubtotal * (activeVoucher.amount / 100));
+            console.log('new subtotal', discount, newSubtotal, newDiscount, subtotal)
+            setDiscount(newDiscount);
             console.log('discount in updatesubtotal', discount);
         }
         setSubtotal(newSubtotal);
@@ -171,7 +176,7 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
     useEffect(() => {
         updateWeightOfPurchase();
         updateSubtotal();
-    }, [orders, products, discount]);
+    }, [orders, products, discount, activeVoucher]);
 
     useEffect(() => {
         updateShippingPrice();
