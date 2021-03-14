@@ -2,8 +2,6 @@ import React, { useState, useContext } from 'react';
 
 import { ShoppingCartContext } from '../context/ShoppingCartContext';
 
-import {createNotification} from '../utils/createNotification';
-
 import styles from '../styles/components/discount-input.module.css';
 
 interface DiscountInputProps {
