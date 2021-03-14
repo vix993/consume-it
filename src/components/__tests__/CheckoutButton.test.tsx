@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 
 import * as renderer from "react-test-renderer";
 
-import { ShoppingCartContext, ShoppingCartProvider, ShoppingCartProviderProps } from '../context/ShoppingCartContext';
+import { ShoppingCartContext, ShoppingCartProvider, ShoppingCartProviderProps } from '../../context/ShoppingCartContext';
 
-import { CheckoutButton } from '../components/CheckoutButton';
+import { CheckoutButton } from '../CheckoutButton';
 
 describe("<CheckoutButton />", () => {
     
