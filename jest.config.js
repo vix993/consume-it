@@ -19,7 +19,6 @@ module.exports = {
   },
   coveragePathIgnorePatterns: [
     "/node_modules/",
-    "enzyme.js"
   ],
   coverageReporters: [
     "json",

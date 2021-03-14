@@ -36,13 +36,11 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
             .catch((err: any) => {
                 console.log(err);
             });
-        // console.log(products);
     }
 
     const requestVouchers = async () => {
         await getVouchers()
             .then(async (res: any) => {
-                console.log(res)
                 if (!res.error){
                     setVouchers(res);
                 }
@@ -50,7 +48,6 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
             .catch((err: any) => {
                 console.log(err);
             })
-        // console.log('vouchers', vouchers);
     }
 
     useEffect(() => {
@@ -61,19 +58,16 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
     const updateWeightOfPurchase = () => {
         let newWeight = 0;
         orders.map((order) => {newWeight += order.quantity});
-        // console.log(newWeight)
         setWeightOfPurchase(newWeight);
     }
 
     const updateShippingPrice = () => {
-        console.log('hello')
         if (subtotal > 400
             || activeVoucher
             && (activeVoucher.type == 'shipping'
             && subtotal > activeVoucher.minValue!)
             ) {
             setDiscount(shipping)
-            console.log('discount in updateshipping', discount);
             // setShipping(0);
             return
         }
@@ -95,21 +89,16 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
             setShipping(baseShipping + addedShipping)
         }
     }
-    console.log(activeVoucher)
 
     const updateSubtotal = () => {
         let newSubtotal = 0;
         orders.map((order) => {
             newSubtotal += order.price * order.quantity
         })
-        console.log('fjerjpewrkf', newSubtotal, discount, activeVoucher)
         if (activeVoucher && activeVoucher.type === 'percentual') {
 
             const newDiscount = newSubtotal * activeVoucher.amount / 100;
-            // const newDiscount = newSubtotal - (newSubtotal * (activeVoucher.amount / 100));
-            console.log('new subtotal', discount, newSubtotal, newDiscount, subtotal)
             setDiscount(newDiscount);
-            console.log('discount in updatesubtotal', discount);
         }
         setSubtotal(newSubtotal);
     }

@@ -1,16 +1,12 @@
 module.exports = {
     presets: [
         "@babel/preset-typescript",
-        "@babel/preset-env",
-        "@babel/preset-react"
+    //     "@babel/preset-env",
     ],
     plugins: [
-        [
-            "@babel/plugin-proposal-class-properties",
-            {
-                "loose": true
-            }
-        ],
-        ["transform-react-jsx", { "pragma": "h"}]
+        ["@babel/transform-react-jsx", {
+            "runtime": "automatic"
+        }],
+        // ["@babel/transform-runtime"]
     ]
 }
