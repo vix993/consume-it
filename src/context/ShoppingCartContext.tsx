@@ -199,6 +199,7 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
                 total,
                 shipping,
                 vouchers,
+                activeVoucher,
                 buyProduct,
                 removeOrder,
                 handleVoucherSelection

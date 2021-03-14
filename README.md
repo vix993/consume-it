@@ -20,7 +20,7 @@ Users can chose from a given range of products provided by a (rather unreliable)
 
 They can purchase them after applying discount codes and checking availability.
 
-You can run it by cloning the repository. Running `cd consumeIT`,`yarn install` then executing the command `yarn dev`.
+You can run it by cloning the repository. Running `cd consume-it`,`yarn install` then executing the command `yarn dev`. `yarn test` to apply tests.
 
 ## Requirements
 
