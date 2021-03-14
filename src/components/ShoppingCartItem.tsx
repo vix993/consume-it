@@ -12,7 +12,7 @@ interface ShoppingCartItemProps {
 }
 
 export const ShoppingCartItem: React.FC<ShoppingCartItemProps> = ({name, quantity, price, id}) => {
-    const { removeOrder, buyProduct } = useContext(ShoppingCartContext);
+    const { removeOrder, buyProduct, updateShippingPrice } = useContext(ShoppingCartContext);
         return (
             <main className={styles.card_item_wrapper}>
                 <section className={styles.card_item_container}>
@@ -26,7 +26,12 @@ export const ShoppingCartItem: React.FC<ShoppingCartItemProps> = ({name, quantit
                     </div>
                     <div className={styles.card_item_buttons}>
                         <button onClick={() => buyProduct(id)}>+</button>
-                        <button onClick={() => removeOrder(id, quantity)}>-</button>
+                        <button
+                            onClick={() => {
+                                removeOrder(id, quantity);
+                                updateShippingPrice();
+
+                        }}>-</button>
                     </div>
                     {/* PRODUCT BOUGHT */}
                 </section>

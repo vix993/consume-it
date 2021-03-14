@@ -24,6 +24,7 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
     const [weightOfPurchase, setWeightOfPurchase] = useState(0);
     const [subtotal, setSubtotal] = useState(0);
     const [shipping, setShipping] = useState(0);
+    const [shippingOffset, setShippingOffset] = useState(0);
     const [discount, setDiscount] = useState(0);
     const [total, setTotal] = useState(0);
 
@@ -77,25 +78,27 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
             && (activeVoucher.type == 'shipping'
             && subtotal > activeVoucher.minValue!)
             ) {
-            setShipping(0);
+            setDiscount(shipping)
+            console.log('discount in updateshipping', discount);
+            // setShipping(0);
             return
         }
-        console.log('hi')
         if (weightOfPurchase === 0){
             setShipping(0);
             return
         }
 
-        console.log('hi there')
         if (weightOfPurchase === 1)
             setShipping(30);
-        // quick math, round multiple of 5, 10kg threshold subtracted
-        // div by 5 to get multiplication number added to current shipping
-        if (weightOfPurchase % 5 === 0) {
+        if (weightOfPurchase % 5 === 0 || weightOfPurchase % 5 === 4) {
             const baseShipping = weightOfPurchase === 0 ? 0 : 30;
-            const addedShipping = ((weightOfPurchase * 7) / 5)
+            if (weightOfPurchase < 14){
+                const newOffset = (((weightOfPurchase - (weightOfPurchase % 5)) / 5) * 7);
+                setShippingOffset(newOffset);
+            }
+            
+            const addedShipping = (((weightOfPurchase - (weightOfPurchase % 5)) * 7) / 5) - shippingOffset
             setShipping(baseShipping + addedShipping)
-            console.log('added shipping', addedShipping, 'shipping', shipping)
         }
     }
     console.log(activeVoucher)
@@ -105,22 +108,18 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
         orders.map((order) => {
             newSubtotal += order.price * order.quantity
         })
-        // console.log('new subtotal', newSubtotal);
         if (activeVoucher && activeVoucher.type === 'percentual') {
-            newSubtotal = subtotal - (subtotal * (activeVoucher.amount / 100));
+            setDiscount(newSubtotal - (newSubtotal * (activeVoucher.amount / 100)));
+            console.log('discount in updatesubtotal', discount);
         }
         setSubtotal(newSubtotal);
     }
 
     const updateTotal = () => {
-        const newTotal = (subtotal + shipping) - discount;
-
         if (activeVoucher && activeVoucher.type === 'fixed') {
-            const newTotal = total > activeVoucher.amount
-                ? subtotal - activeVoucher.amount
-                : 0;
-            setTotal(newTotal);
+            setDiscount(activeVoucher.amount);
         }
+        const newTotal = (subtotal + shipping) - discount;
         setTotal(newTotal);
     }
 
@@ -143,20 +142,16 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
         const voucherSelection = vouchers.filter((voucher) => voucher.code === discountCode)[0];
         if (!voucherSelection)
             return "code invalid";
-        console.log(activeVoucher === voucherSelection, voucherSelection)
-        if (activeVoucher === voucherSelection)
-            return "code active";
+        console.log(activeVoucher === voucherSelection, voucherSelection);
+        if (activeVoucher)
+            return "code already active";
         setActiveVoucher(voucherSelection)
         return "discount applied"
     }
 
     const buyProduct = (productId: number) => {
         let product = products.filter((product) => product.id === productId)[0]
-        console.log(product, products)
         
-        // If product is available:
-        // update stock, add to orders
-        // update pricing details
         if (product.available > 0) {
             const newProductsData = products.filter((prod: ProductsData) => product.id != prod.id);
             product.available--;
@@ -171,23 +166,22 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
         const changedOrderProduct = products.filter((product) => product.id === orderProductId)[0];
         if (quantity > 0)
             setOrders(createNewOrdersList(changedOrderProduct, orders, 'subtract'));
-        // console.log('removing order', orders);
-        // TODO ################# TODO ##############
-        // restock unwanted products
-        // const unchangedProducts = products.filter((product) => product.id !== orderProductId);
-        // let newChangedProduct: ProductsData | null = null;
-        // products.map((order))
+
+        const unchangedProducts = products.filter((product) => product.id !== orderProductId);
+        const changedProduct = {...changedOrderProduct, available: changedOrderProduct.available + 1}
+        const newProducts = [...unchangedProducts, changedProduct].sort((prod, prod1) => prod.id - prod1.id)
+        setProducts(newProducts)
     }
 
     // update weight everytime order changes
     useEffect(() => {
         updateWeightOfPurchase();
         updateSubtotal();
-    }, [orders, products, activeVoucher]);
+    }, [orders, products, discount]);
 
     useEffect(() => {
         updateShippingPrice();
-    }, [weightOfPurchase, activeVoucher])
+    }, [weightOfPurchase, discount, shippingOffset, removeOrder])
 
     useEffect(() => {
         updateTotal();
@@ -206,7 +200,8 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
                 activeVoucher,
                 buyProduct,
                 removeOrder,
-                handleVoucherSelection
+                handleVoucherSelection,
+                updateShippingPrice
             }}
         >
             {children}
