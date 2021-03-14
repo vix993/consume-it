@@ -28,15 +28,18 @@ Typescript, React, Next.js, Jest and more.
 
 ## Pages
 ### *Home*
+The App consists of an SPA that holds 2 main views, the Shopping Cart View and the Product Display
 
-#### timer and user details
-Click start cycle to begin your work cycle and at the end of it receive your challenge and XP on completion.
-##### /
-###### App
+<img src="./presentation/home-initial-state.png" alt="screenshot of UI"/>
 
-<img src="./presentation/screenshot.png" alt="screenshot of UI"/>
+#### ShoppingCartView
+The shopping cart view will always render. It can be affected by purchasing the products clicking `BUY` under the products if they are available.
 
-###### Level-up
+We can add or subtract items from our cart, dynamically calculating our pricing details.
 
-<img src="./presentation/screenshot_levelup.png" alt="screenshot of levelup"/>
+<img src="./presentation/shopping-cart.png" alt="screenshot of shopping cart"/>
 
+#### ProductsDisplay
+The products display will render if we get a response from the server, allowing us to purchase items.
+
+<img src="./presentation/products-display.png" alt="screenshot of product display"/>

@@ -7,8 +7,6 @@ import { ProductsData, VouchersData, OrdersData } from '../types/ProductModels';
 import { ShoppingCartContextData } from '../types/ShoppingCartContextData';
 
 import { createNewOrdersList } from '../utils/shoppingCartUtils';
-import { createNotification } from '../utils/createNotification';
-
 
 export interface ShoppingCartProviderProps {
     children: ReactNode;
@@ -54,10 +52,6 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
             })
         // console.log('vouchers', vouchers);
     }
-
-    useEffect(() => {
-        Notification.requestPermission();
-    }, []);
 
     useEffect(() => {
         requestProducts();
