@@ -9,6 +9,7 @@
       "removeComments": true,
       "moduleResolution": "node",
       "esModuleInterop": true,
+      "allowUmdGlobalAccess": true,
       "lib": [
         "es2017",
         "dom"

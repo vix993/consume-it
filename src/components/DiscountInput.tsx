@@ -30,7 +30,9 @@ export const DiscountInput: React.FC<DiscountInputProps> = ({}) => {
             <input
                 type="text"
                 value={discountCodeInput}
-                onChange={handleChange}/>
+                onChange={handleChange}
+                placeholder="Discount code"
+            />
             <button type="submit">
                 Apply
             </button>
