@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DiscountInput /> Should display an input for a discount code and a submit button to apply it 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <input
+    onChange={[Function]}
+    placeholder="Discount code"
+    type="text"
+    value=""
+  />
+  <button
+    type="submit"
+  >
+    Apply
+  </button>
+</form>
+`;
