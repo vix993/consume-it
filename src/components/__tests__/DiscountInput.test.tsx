@@ -2,8 +2,6 @@ import React from "react";
 
 import renderer from "react-test-renderer";
 
-import { renderHook } from "@testing-library/react-hooks"
-
 import { cleanup, render, queryByDisplayValue } from '@testing-library/react';
 
 import { DiscountInput } from '../DiscountInput';
