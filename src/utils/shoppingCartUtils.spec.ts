@@ -1,6 +1,6 @@
 import { createNewOrdersList } from './shoppingCartUtils';
 
-test("Unit testing dynamic order list editing adding product quantity", () => {
+test("Adding product quantity", () => {
     const orders = [
         {
             name: "Banana",
@@ -27,7 +27,7 @@ test("Unit testing dynamic order list editing adding product quantity", () => {
     expect(newOrders).toStrictEqual(expected);
 })
 
-test("Unit testing dynamic order list editing sebtracting product quantity", () => {
+test("Subtracting product quantity", () => {
     const orders = [
         {
             name: "Banana",

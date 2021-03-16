@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "test:cover": "jest --collect-coverage"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
@@ -37,6 +38,8 @@
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.2",
     "babel-preset-env": "^1.7.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
     "jest": "^26.6.3",
     "react-test-renderer": "^17.0.1",
     "ts-jest": "^26.5.3"

@@ -20,13 +20,14 @@ export const ShoppingCartItem: React.FC<ShoppingCartItemProps> = ({name, quantit
                     <div className={styles.card_item_description}>
                         <h4>{name}</h4>
                         <section>
-                            <span>Quantity: {quantity}</span>
+                            <span data-testid="test-shop-item-quan">Quantity: {quantity}</span>
                             <span>$ {price}.00</span>
                         </section>
                     </div>
                     <div className={styles.card_item_buttons}>
-                        <button onClick={() => buyProduct(id)}>+</button>
+                        <button id="test-shop-item-sub" onClick={() => buyProduct(id)}>+</button>
                         <button
+                            id="test-shop-item-add"
                             onClick={() => {
                                 removeOrder(id, quantity);
                                 updateShippingPrice();

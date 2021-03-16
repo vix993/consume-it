@@ -1,41 +1,44 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext } from "react";
 
-import { ShoppingCartContext } from '../context/ShoppingCartContext';
+import { ShoppingCartContext } from "../context/ShoppingCartContext";
 
-import styles from '../styles/components/discount-input.module.css';
+import styles from "../styles/components/discount-input.module.css";
 
-interface DiscountInputProps {
-
-}
+interface DiscountInputProps {}
 
 export const DiscountInput: React.FC<DiscountInputProps> = ({}) => {
-    const [discountCodeInput, setDiscountCodeInput] = useState("");
-    const [discountCodeMessage, setDiscountCodeMessage] = useState("");
-    const { handleVoucherSelection, activeVoucher } = useContext(ShoppingCartContext);
+  const [discountCodeInput, setDiscountCodeInput] = useState("");
+  const [discountCodeMessage, setDiscountCodeMessage] = useState("");
+  const { handleVoucherSelection, activeVoucher } = useContext(
+    ShoppingCartContext
+  );
 
-    const handleChange = (e: any) => {
-        setDiscountCodeInput(e.target.value)
-    }
+  const handleChange = (e: any) => {
+    setDiscountCodeInput(e.target.value);
+  };
 
-    const handleSubmitDiscountCode = (e: any) => {
-        e.preventDefault();
-        const message = handleVoucherSelection(discountCodeInput);
-        alert(message);
-        setDiscountCodeMessage(message);
-        setDiscountCodeInput("");
-    }
+  const handleSubmitDiscountCode = (e: any) => {
+    e.preventDefault();
+    const message = handleVoucherSelection(discountCodeInput);
+    alert(message);
+    setDiscountCodeMessage(message);
+    setDiscountCodeInput("");
+  };
 
-    return (
-        <form className={styles.discount_input_wrapper} onSubmit={handleSubmitDiscountCode}>
-            <input
-                type="text"
-                value={discountCodeInput}
-                onChange={handleChange}
-                placeholder="Discount code"
-            />
-            <button type="submit">
-                Apply
-            </button>
-        </form>
-    );
-}
+  return (
+    <form
+      className={styles.discount_input_wrapper}
+      onSubmit={handleSubmitDiscountCode}
+      id="test-form-disc"
+    >
+      <input
+        type="text"
+        value={discountCodeInput}
+        onChange={handleChange}
+        placeholder="Discount code"
+        id="test-form-disc-input"
+      />
+      <button type="submit" id="test-form-disc-sub">Apply</button>
+    </form>
+  );
+};

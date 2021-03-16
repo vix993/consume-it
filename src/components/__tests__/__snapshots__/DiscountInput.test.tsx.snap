@@ -2,15 +2,18 @@
 
 exports[`<DiscountInput /> Should display an input for a discount code and a submit button to apply it 1`] = `
 <form
+  id="test-form-disc"
   onSubmit={[Function]}
 >
   <input
+    id="test-form-disc-input"
     onChange={[Function]}
     placeholder="Discount code"
     type="text"
     value=""
   />
   <button
+    id="test-form-disc-sub"
     type="submit"
   >
     Apply

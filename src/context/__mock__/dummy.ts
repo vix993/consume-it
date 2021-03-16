@@ -1,5 +1,5 @@
-{
-    "data": [
+
+export const data = [
         {
             "id": 1,
             "name": "Banana",
@@ -36,4 +36,4 @@
             "price": 35,
             "available": 70
         }
-]}
+]

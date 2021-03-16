@@ -12,7 +12,7 @@ interface ShoppingCartProps {
 
 export const ShoppingCart: React.FC<ShoppingCartProps> = ({}) => {
         return (
-            <aside className={styles.shopping_cart_wrapper}>
+            <aside className={styles.shopping_cart_wrapper} id="test-sh-cart">
                 <header>Shopping Cart</header>
                 <ShoppingCartOrdersList />
                 <DiscountInput />

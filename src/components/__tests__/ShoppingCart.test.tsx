@@ -12,30 +12,30 @@ import { ShoppingCart } from '../ShoppingCart';
 
 describe("<ShoppingCart />", () => {
     afterEach(cleanup);
-    it("Should render shopping cart with children that have state influenced rendering", () => {
+
+    const orders = [
+        {id: 1, name: 'Banana', price: 10, quantity:2},
+        {id: 2, name: 'Apple', price: 10, quantity:2},
+        {id: 3, name: 'Mango', price: 10, quantity:2},
+        {id: 4, name: 'Pear', price: 10, quantity:2}
+    ]
+    it("Should render shopping cart with children that have context influenced rendering", () => {
         const { result, rerender} = renderHook(() => {
             return useContext(ShoppingCartContext)
         })
 
         const values = result.current
-        const component = renderer
-            .create(
-                <ShoppingCartContext.Provider value={
-                    {...values, orders: [{id: 1, name: 'Banana', price: 10, quantity:2}],
-                    subtotal: 10, discount: 0, shipping: 30, total: 40}}
-                >
-                    <ShoppingCart />
-                </ShoppingCartContext.Provider>
-            )
 
-        const { container, queryByTitle } = render(
+        const { container, queryByTestId } = render(
             <ShoppingCartContext.Provider value={
-                {...values, orders: [{id: 1, name: 'Banana', price: 10, quantity:2}],
+                {...values, orders: orders,
                 subtotal: 10, discount: 0, shipping: 30, total: 40}}
             >
                 <ShoppingCart />
             </ShoppingCartContext.Provider>
         )
-        expect(queryByTitle('Shopping Cart'));
+
+        expect(container);
+        expect(queryByTestId('test-sh-cart'));
     });
 })

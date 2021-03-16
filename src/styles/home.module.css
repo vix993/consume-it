@@ -3,7 +3,7 @@
     flex-direction: row;
     justify-content: space-evenly;
     background-color: var(--text-primary);
-    height: 100vh;
+    height: 90vh;
 }
 
 @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
