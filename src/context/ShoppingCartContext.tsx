@@ -62,14 +62,15 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
     }
 
     const updateShippingPrice = () => {
-        if (subtotal > 400
-            || activeVoucher
+        if (activeVoucher
             && (activeVoucher.type == 'shipping'
             && subtotal > activeVoucher.minValue!)
             ) {
             setDiscount(shipping)
-            // setShipping(0);
             return
+        }
+        if (subtotal > 400) {
+            setShipping(0);
         }
         if (weightOfPurchase === 0){
             setShipping(0);
@@ -96,8 +97,12 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
             newSubtotal += order.price * order.quantity
         })
         if (activeVoucher && activeVoucher.type === 'percentual') {
-
-            const newDiscount = newSubtotal * activeVoucher.amount / 100;
+            let newDiscount;
+            if (subtotal > 400) {
+                newDiscount = (newSubtotal * activeVoucher.amount / 100) + shipping;
+            } else {
+                newDiscount = newSubtotal * activeVoucher.amount / 100
+            }
             setDiscount(newDiscount);
         }
         setSubtotal(newSubtotal);
@@ -173,7 +178,7 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
 
     useEffect(() => {
         updateTotal();
-    }, [subtotal, shipping, discount, activeVoucher]);
+    }, [subtotal, shipping, discount, activeVoucher, handleVoucherSelection]);
 
     return (
         <ShoppingCartContext.Provider
