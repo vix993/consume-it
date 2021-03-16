@@ -78,3 +78,9 @@
     width: 100%;
     border-bottom-right-radius: 0.25rem;
 }
+
+@media only screen and (max-width: 650px) {
+    .card_item_buttons button {
+        height: 50%;
+    }
+}
