@@ -71,6 +71,7 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
         }
         if (subtotal > 400) {
             setShipping(0);
+            return
         }
         if (weightOfPurchase === 0){
             setShipping(0);
