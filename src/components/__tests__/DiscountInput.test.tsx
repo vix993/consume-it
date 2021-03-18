@@ -42,6 +42,12 @@ describe("<DiscountInput />", () => {
         const { container, queryByPlaceholderText } = render(
                 <DiscountInput />
         )
+        const addInput = container.querySelector('[id="test-form-disc-input"]')
+        fireEvent.input(addInput!, {input: 0})
+        expect(screen.getByPlaceholderText('Discount code'))
+        const addButton = container.querySelector('[id="test-form-disc-sub"]')
+        // fireEvent.click(addButton!, {button: 0})
+        // expect(screen.getByText(`Apply`))
         expect(screen.getByPlaceholderText('Discount code')).toBeTruthy();
         expect(screen.queryAllByDisplayValue('Apply')).toBeTruthy();
     });

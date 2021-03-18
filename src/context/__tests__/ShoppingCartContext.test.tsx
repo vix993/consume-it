@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 
-import { renderHook,  } from "@testing-library/react-hooks";
+import { renderHook } from "@testing-library/react-hooks";
 
 import * as renderer from "react-test-renderer";
 
@@ -8,7 +8,7 @@ import { ShoppingCartContext, ShoppingCartProvider } from '../../context/Shoppin
 
 import { ShoppingCart } from '../../components/ShoppingCart';
 
-import { render } from "@testing-library/react";
+import { getByTestId, getByText, render } from "@testing-library/react";
 
 import {context} from '../__mock__/testHelpers'
 
@@ -27,5 +27,7 @@ describe("<ShoppingCartContext />", () => {
                 <ShoppingCart />
             </ShoppingCartContext.Provider>
         )
+        const subtotalValue = getByText(container, "subtotal");
+        expect(subtotalValue.textContent)
     })
 })

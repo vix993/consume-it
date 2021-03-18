@@ -1,0 +1,154 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ProductDisplay /> Should render a product list with context provided values 1`] = `
+<div>
+  <section>
+    <div>
+      <section>
+        <div />
+        <main>
+          <span>
+            Banana
+          </span>
+          <div>
+            <div>
+              $ 
+              10
+              ,00
+            </div>
+            <div>
+              10
+               left
+            </div>
+          </div>
+        </main>
+        <div>
+          <button>
+            BUY
+          </button>
+        </div>
+      </section>
+      <section>
+        <div />
+        <main>
+          <span>
+            Apple
+          </span>
+          <div>
+            <div>
+              $ 
+              20
+              ,00
+            </div>
+            <div>
+              15
+               left
+            </div>
+          </div>
+        </main>
+        <div>
+          <button>
+            BUY
+          </button>
+        </div>
+      </section>
+      <section>
+        <div />
+        <main>
+          <span>
+            Orange
+          </span>
+          <div>
+            <div>
+              $ 
+              30
+              ,00
+            </div>
+            <div>
+              8
+               left
+            </div>
+          </div>
+        </main>
+        <div>
+          <button>
+            BUY
+          </button>
+        </div>
+      </section>
+      <section>
+        <div />
+        <main>
+          <span>
+            Mango
+          </span>
+          <div>
+            <div>
+              $ 
+              15
+              ,00
+            </div>
+            <div>
+              20
+               left
+            </div>
+          </div>
+        </main>
+        <div>
+          <button>
+            BUY
+          </button>
+        </div>
+      </section>
+      <section>
+        <div />
+        <main>
+          <span>
+            Dragon Fruit
+          </span>
+          <div>
+            <div>
+              $ 
+              40
+              ,00
+            </div>
+            <div>
+              50
+               left
+            </div>
+          </div>
+        </main>
+        <div>
+          <button>
+            BUY
+          </button>
+        </div>
+      </section>
+      <section>
+        <div />
+        <main>
+          <span>
+            Passion Fruit
+          </span>
+          <div>
+            <div>
+              $ 
+              35
+              ,00
+            </div>
+            <div>
+              70
+               left
+            </div>
+          </div>
+        </main>
+        <div>
+          <button>
+            BUY
+          </button>
+        </div>
+      </section>
+    </div>
+  </section>
+</div>
+`;
