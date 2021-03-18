@@ -41,6 +41,7 @@ We can add or subtract items from our cart, dynamically calculating our pricing 
     <img src="./presentation/shopping-cart.png" alt="screenshot of shopping cart"/>
     <img src="./presentation/cart-mobile.png" alt="screenshot of shopping cart mobile"/>
 </div>
+
 #### ProductsDisplay
 The products display will render if we get a response from the server, allowing us to purchase items.
 <div style="display: flex; flex-direction: row; justify-content: space-evenly;">
