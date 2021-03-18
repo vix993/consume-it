@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 
 import renderer from "react-test-renderer";
 
-import { cleanup, render } from '@testing-library/react';
+import { cleanup, queryAllByDisplayValue, queryByDisplayValue, render } from '@testing-library/react';
 
 import { renderHook } from '@testing-library/react-hooks';
 
@@ -36,6 +36,6 @@ describe("<ShoppingCart />", () => {
         )
 
         expect(container);
-        expect(queryByTestId('test-sh-cart'));
+        expect(queryAllByDisplayValue(container, 'Shopping Cart')).toBeTruthy();
     });
 })

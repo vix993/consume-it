@@ -2,47 +2,46 @@ import React, { useContext } from "react";
 
 import renderer from "react-test-renderer";
 
-import { cleanup, fireEvent, queryByDisplayValue, render, screen } from '@testing-library/react';
+import { cleanup, queryByDisplayValue, render, screen } from '@testing-library/react';
 
-import { DiscountInput } from '../DiscountInput';
+import { Header } from '../Header';
 
 import { ShoppingCartContext } from '../../context/ShoppingCartContext';
-
-import { renderHook } from "@testing-library/react-hooks";
 
 import { ShoppingCartContextData } from "../../types/ShoppingCartContextData";
 
 import { context } from "../../context/__mock__/testHelpers";
 
-const renderDiscountInput = (values: ShoppingCartContextData) => {
+const renderHeader = (values: ShoppingCartContextData) => {
     return render(
         <ShoppingCartContext.Provider value={values}>
-            <DiscountInput/>
+            <Header/>
         </ShoppingCartContext.Provider>
     )
 }
 
-describe("<DiscountInput />", () => {
+describe("<Header />", () => {
     afterEach(cleanup);
 
-    it("should fire an alert on button click", () => {        
-        renderDiscountInput(context);
-        expect(screen.getByText("Apply")).toBeTruthy()
+    it("renders correctly", () => {        
+        renderHeader(context);
+        expect(screen.getByText("Jerry")).toBeTruthy()
     })
 
     it("Should display an input for a discount code and a submit button to apply it", () => {
         const component = renderer
             .create(
-                    <DiscountInput />
+                    <Header />
             )
 
         let jsonTree = component.toJSON();
         expect(jsonTree).toMatchSnapshot();
 
         const { container, queryByPlaceholderText } = render(
-                <DiscountInput />
+                <Header />
         )
-        expect(screen.getByPlaceholderText('Discount code')).toBeTruthy();
-        expect(screen.queryAllByDisplayValue('Apply')).toBeTruthy();
+        console.log(queryByPlaceholderText('ConsumeIT'))
+        expect(queryByPlaceholderText('ConsumeIT'));
+        expect(queryByDisplayValue(container, 'Apply'))
     });
 })

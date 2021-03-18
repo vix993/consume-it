@@ -1,24 +1,31 @@
 import React, { useContext } from "react";
 
-import { renderHook } from "@testing-library/react-hooks";
+import { renderHook,  } from "@testing-library/react-hooks";
 
 import * as renderer from "react-test-renderer";
 
-import { ShoppingCartContext,  } from '../../context/ShoppingCartContext';
+import { ShoppingCartContext, ShoppingCartProvider } from '../../context/ShoppingCartContext';
+
+import { ShoppingCart } from '../../components/ShoppingCart';
+
+import { render } from "@testing-library/react";
+
+import {context} from '../__mock__/testHelpers'
 
 describe("<ShoppingCartContext />", () => {
-    it("Should calculate the Total price based on the current pricing details", () => {
-        const { result, rerender} = renderHook(() => {
-            return useContext(ShoppingCartContext)
-        })
-        
-        const {
-            handleVoucherSelection, activeVoucher,
-            total, discount, subtotal, shipping,
-            vouchers, buyProduct, removeOrder,
-            updateShippingPrice,
-        } = result.current
-
-        expect(result.current);
+    
+    it("Should render with empty object", () => {
+        const { result } = renderHook(() => useContext(ShoppingCartContext))
+        expect(result.current).toStrictEqual({})
     });
+    it("", () => {
+        const { container, queryByTestId } = render(
+            <ShoppingCartContext.Provider value={
+                {...context, orders: context.orders,
+                subtotal: 10, discount: 0, shipping: 30, total: 40}}
+            >
+                <ShoppingCart />
+            </ShoppingCartContext.Provider>
+        )
+    })
 })

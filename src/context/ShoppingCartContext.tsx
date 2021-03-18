@@ -77,7 +77,6 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
             setShipping(0);
             return
         }
-
         if (weightOfPurchase === 1)
             setShipping(30);
         if (weightOfPurchase % 5 === 0 || weightOfPurchase % 5 === 4) {

@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> Should display an input for a discount code and a submit button to apply it 1`] = `
+<header>
+  <h1>
+    ConsumeIT
+  </h1>
+  <div>
+    <img
+      alt="jerries picture"
+      src="https://avatars.githubusercontent.com/u/52217652?s=460&u=de9ddf79d4c89c3116a32ed9d498caac323b2beb&v=4"
+    />
+    <span>
+      Jerry
+    </span>
+  </div>
+</header>
+`;
