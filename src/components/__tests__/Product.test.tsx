@@ -41,7 +41,7 @@ describe("<Product />", () => {
     expect(screen.getByText("BUY")).toBeTruthy();
   });
 
-  it("Should display an input for a discount code and a submit button to apply it", () => {
+  it("Should display product with given input", () => {
     const component = renderer.create(<Product name={context.products[0].name}
         available={context.products[0].available}
         id={context.products[0].id}

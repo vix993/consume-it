@@ -28,7 +28,7 @@ describe("<Header />", () => {
         expect(screen.getByText("Jerry")).toBeTruthy()
     })
 
-    it("Should display an input for a discount code and a submit button to apply it", () => {
+    it("Should Match snapshot", () => {
         const component = renderer
             .create(
                     <Header />
@@ -36,12 +36,5 @@ describe("<Header />", () => {
 
         let jsonTree = component.toJSON();
         expect(jsonTree).toMatchSnapshot();
-
-        const { container, queryByPlaceholderText } = render(
-                <Header />
-        )
-        console.log(queryByPlaceholderText('ConsumeIT'))
-        expect(queryByPlaceholderText('ConsumeIT'));
-        expect(queryByDisplayValue(container, 'Apply'))
     });
 })

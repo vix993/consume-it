@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Product /> Should display an input for a discount code and a submit button to apply it 1`] = `
+exports[`<Product /> Should display product with given input 1`] = `
 <section>
   <div />
   <main>

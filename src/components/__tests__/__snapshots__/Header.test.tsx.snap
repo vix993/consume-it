@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Header /> Should display an input for a discount code and a submit button to apply it 1`] = `
+exports[`<Header /> Should Match snapshot 1`] = `
 <header>
   <h1>
     ConsumeIT

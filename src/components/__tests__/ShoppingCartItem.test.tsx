@@ -29,11 +29,4 @@ describe("<ShoppingCartItem />", () => {
         renderDiscountInput(context);
         expect(screen.getByText(context.orders[0].name)).toBeTruthy()
     })
-
-    it("should subtract 1 from quantity", () => {
-        const { container } = renderDiscountInput(context)
-        const addButton = container.querySelector('[id="test-shop-item-sub"]')
-        if (addButton)
-            fireEvent.click(addButton, { button: 0 })
-    })
 })
