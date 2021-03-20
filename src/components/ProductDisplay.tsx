@@ -6,9 +6,7 @@ import { Product } from './Product';
 
 import styles from '../styles/components/product-display.module.css';
 
-interface ProductDisplayProps {
-
-}
+interface ProductDisplayProps {}
 
 export const ProductDisplay: React.FC<ProductDisplayProps> = ({}) => {
     const { products } = useContext(ShoppingCartContext);

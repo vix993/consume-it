@@ -27,6 +27,8 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
     const [total, setTotal] = useState(0);
 
     // fetching product data
+    // failed responses stop
+    // product display from rendering
     const requestProducts = async () => {
         await getProducts()
             .then((res: any) => {
@@ -37,7 +39,9 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
                 console.log(err);
             });
     }
-
+    // fetching voucher data
+    // failed request prompts "invalid code"
+    // for voucher input
     const requestVouchers = async () => {
         await getVouchers()
             .then(async (res: any) => {
@@ -54,13 +58,16 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
         requestProducts();
         requestVouchers();
     }, []);
-
+    // weight calculated on purchase or removal
     const updateWeightOfPurchase = () => {
         let newWeight = 0;
         orders.map((order) => {newWeight += order.quantity});
         setWeightOfPurchase(newWeight);
     }
-
+    // discount becomes shipping price
+    // if pertinent voucher is selected
+    // validates that shipping is over 400 or 0
+    // adds 7 if weight is greater than 14
     const updateShippingPrice = () => {
         if (activeVoucher
             && (activeVoucher.type == 'shipping'
@@ -90,7 +97,8 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
             setShipping(baseShipping + addedShipping)
         }
     }
-
+    // subtotal calc -> iterate orders and add price with quantity
+    // subtracts percentage if voucher selected
     const updateSubtotal = () => {
         let newSubtotal = 0;
         orders.map((order) => {
@@ -107,7 +115,7 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
         }
         setSubtotal(newSubtotal);
     }
-
+    // calcs total after checking if fixed voucher
     const updateTotal = () => {
         if (activeVoucher && activeVoucher.type === 'fixed') {
             setDiscount(activeVoucher.amount);
@@ -130,7 +138,8 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
             }])
         }
     }
-
+    // finds apropriate voucher for discount code if aplicable
+    // alocates display message and sets active voucher to state
     const handleVoucherSelection = (discountCode: string) => {
         const voucherSelection = vouchers.filter((voucher) => voucher.code === discountCode)[0];
         if (!voucherSelection)
@@ -141,7 +150,7 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
         setActiveVoucher(voucherSelection)
         return "discount applied"
     }
-
+    // checks if product is available and sums to orders
     const buyProduct = (productId: number) => {
         let product = products.filter((product) => product.id === productId)[0]
         
@@ -154,7 +163,7 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
             updateWeightOfPurchase();
         }
     }
-
+    // checks if orders exist to remove and does it
     const removeOrder = (orderProductId: number, quantity: number) => {
         const changedOrderProduct = products.filter((product) => product.id === orderProductId)[0];
         if (quantity > 0)
@@ -166,7 +175,6 @@ export const ShoppingCartProvider = ({ children }: ShoppingCartProviderProps) =>
         setProducts(newProducts)
     }
 
-    // update weight everytime order changes
     useEffect(() => {
         updateWeightOfPurchase();
         updateSubtotal();

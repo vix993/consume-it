@@ -6,9 +6,7 @@ import { DiscountInput } from './DiscountInput';
 import { PricingDetailsList } from './PricingDetailsList';
 import { ShoppingCartOrdersList } from './ShoppingCartOrdersList';
 
-interface ShoppingCartProps {
-
-}
+interface ShoppingCartProps {}
 
 export const ShoppingCart: React.FC<ShoppingCartProps> = ({}) => {
         return (

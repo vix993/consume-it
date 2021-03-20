@@ -15,8 +15,8 @@ export const DiscountInput: React.FC<DiscountInputProps> = ({}) => {
 
   const handleChange = (e: any) => {
     setDiscountCodeInput(e.target.value);
-  };
-
+  }
+  // Will fire an alert with outcome reliant message
   const handleSubmitDiscountCode = (e: any) => {
     e.preventDefault();
     const message = handleVoucherSelection(discountCodeInput);

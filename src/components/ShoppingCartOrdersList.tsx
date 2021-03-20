@@ -6,9 +6,7 @@ import { ShoppingCartContext } from '../context/ShoppingCartContext';
 
 import styles from '../styles/components/shopping-cart-orders-list.module.css';
 
-interface ShoppingCartOrdersListProps {
-
-}
+interface ShoppingCartOrdersListProps {}
 
 export const ShoppingCartOrdersList: React.FC<ShoppingCartOrdersListProps> = ({}) => {
     const { orders } = useContext(ShoppingCartContext);
